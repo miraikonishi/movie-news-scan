@@ -3,24 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>映画ニュースデイリーラインナップ - 2026-06-22</title>
+    <title>Movie News Digest — 2026-06-22</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; max-width: 960px; margin: 20px auto; padding: 0 15px; background-color: #f4f4f4; }
-        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { color: #0056b3; margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        ul { list-style: none; padding: 0; }
-        li { background-color: #fff; border: 1px solid #ddd; margin-bottom: 10px; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        li a { color: #007bff; text-decoration: none; font-weight: bold; }
-        li a:hover { text-decoration: underline; }
-        .recommendation { font-size: 0.9em; color: #555; margin-top: 5px; }
-        .score { font-weight: bold; color: #d9534f; margin-top: 5px; display: inline-block; padding: 3px 8px; background-color: #fde0e0; border-radius: 3px; }
-        .source { font-style: italic; color: #777; font-size: 0.8em; margin-left: 10px; }
-        .no-news { text-align: center; color: #888; margin-top: 50px; font-size: 1.2em; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #f7f8f8;
+            background-color: #08090a;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px 120px;
+        }
+        header {
+            margin-bottom: 64px;
+        }
+        .date {
+            font-size: 13px;
+            font-weight: 500;
+            color: #8a8f98;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -0.7px;
+            line-height: 1.13;
+            color: #f7f8f8;
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: #23252a;
+            margin: 32px 0;
+        }
+        .news-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .news-item {
+            padding: 20px 16px;
+            border-radius: 8px;
+            transition: background-color 0.15s ease;
+        }
+        .news-item:hover {
+            background-color: #161718;
+        }
+        .news-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+        .news-number {
+            font-size: 13px;
+            font-weight: 500;
+            color: #62666d;
+            min-width: 20px;
+        }
+        .news-title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: -0.2px;
+        }
+        .news-title a {
+            color: #f7f8f8;
+            text-decoration: none;
+        }
+        .news-title a:hover {
+            color: #5e6ad2;
+        }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 32px;
+            margin-top: 4px;
+        }
+        .source-badge {
+            font-size: 12px;
+            font-weight: 500;
+            color: #8a8f98;
+            background: #161718;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            border: 1px solid #23252a;
+        }
+        .news-item:hover .source-badge {
+            background: #1e1f21;
+        }
+        .score-badge {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+        .score-high {
+            color: #27a644;
+            background: rgba(39, 166, 68, 0.1);
+            border: 1px solid rgba(39, 166, 68, 0.2);
+        }
+        .score-mid {
+            color: #5e6ad2;
+            background: rgba(94, 106, 210, 0.1);
+            border: 1px solid rgba(94, 106, 210, 0.2);
+        }
+        .score-low {
+            color: #8a8f98;
+            background: rgba(138, 143, 152, 0.06);
+            border: 1px solid #23252a;
+        }
+        .news-summary {
+            font-size: 14px;
+            color: #8a8f98;
+            line-height: 1.5;
+            margin-left: 32px;
+            margin-top: 4px;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 80px 0;
+            color: #62666d;
+        }
+        .empty-state p {
+            font-size: 16px;
+            font-weight: 400;
+        }
+        footer {
+            margin-top: 80px;
+            padding-top: 24px;
+            border-top: 1px solid #23252a;
+            font-size: 12px;
+            color: #62666d;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 48px 16px 80px; }
+            h1 { font-size: 24px; }
+            header { margin-bottom: 40px; }
+        }
     </style>
 </head>
 <body>
-    <h1>映画ニュースデイリーラインナップ - 2026年06月22日</h1>
-    <ul>
-    <p class="no-news">本日、日本の読者に響くニュース候補は見つかりませんでした。</p>    </ul>
+    <div class="container">
+        <header>
+            <p class="date">2026年06月22日（月）</p>
+            <h1>Movie News Digest</h1>
+        </header>
+        <div class="divider"></div>
+        <ul class="news-list">
+        <div class="empty-state"><p>本日のニュース候補はありません</p></div>
+    </ul>
+        <footer>Powered by Movie News Scan</footer>
+    </div>
 </body>
 </html>
