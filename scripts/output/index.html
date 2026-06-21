@@ -3,153 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie News Digest — 2026-06-22 06:48:30</title>
+    <title>Movie News Digest — 2026-06-22 06:53:50</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { {margin}: 0; {padding}: 0; {box-sizing}: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #f7f8f8;
-            background-color: #08090a;
+            {font-family}: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            {line-height}: 1.6;
+            {color}: #f7f8f8;
+            {background-color}: #08090a;
             -webkit-font-smoothing: antialiased;
         }
         .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 24px 120px;
+            {max-width}: 720px;
+            {margin}: 0 auto;
+            {padding}: 80px 24px 120px;
         }
         header {
-            margin-bottom: 64px;
+            {margin-bottom}: 64px;
         }
         .date {
-            font-size: 13px;
-            font-weight: 500;
-            color: #8a8f98;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
+            {font-size}: 13px;
+            {font-weight}: 500;
+            {color}: #8a8f98;
+            {letter-spacing}: 0.05em;
+            {text-transform}: uppercase;
+            {margin-bottom}: 12px;
         }
         h1 {
-            font-size: 32px;
-            font-weight: 300;
-            letter-spacing: -0.7px;
-            line-height: 1.13;
-            color: #f7f8f8;
+            {font-size}: 32px;
+            {font-weight}: 300;
+            {letter-spacing}: -0.7px;
+            {line-height}: 1.13;
+            {color}: #f7f8f8;
         }
         .divider {
-            width: 100%;
-            height: 1px;
-            background: #23252a;
-            margin: 32px 0;
+            {width}: 100%;
+            {height}: 1px;
+            {background}: #23252a;
+            {margin}: 32px 0;
         }
         .news-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
+            {list-style}: none;
+            {display}: flex;
+            {flex-direction}: column;
+            {gap}: 2px;
         }
         .news-item {
-            padding: 20px 16px;
-            border-radius: 8px;
-            transition: background-color 0.15s ease;
+            {padding}: 20px 16px;
+            {border-radius}: 8px;
+            {transition}: background-color 0.15s ease;
         }
         .news-item:hover {
-            background-color: #161718;
+            {background-color}: #161718;
         }
         .news-header {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 6px;
+            {display}: flex;
+            {align-items}: baseline;
+            {gap}: 12px;
+            {margin-bottom}: 6px;
         }
         .news-number {
-            font-size: 13px;
-            font-weight: 500;
-            color: #62666d;
-            min-width: 20px;
+            {font-size}: 13px;
+            {font-weight}: 500;
+            {color}: #62666d;
+            {min-width}: 20px;
         }
         .news-title {
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: -0.2px;
+            {font-size}: 16px;
+            {font-weight}: 500;
+            {line-height}: 1.5;
+            {letter-spacing}: -0.2px;
         }
         .news-title a {
-            color: #f7f8f8;
-            text-decoration: none;
+            {color}: #f7f8f8;
+            {text-decoration}: none;
         }
         .news-title a:hover {
-            color: #5e6ad2;
+            {color}: #5e6ad2;
         }
         .news-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: 32px;
-            margin-top: 4px;
+            {display}: flex;
+            {align-items}: center;
+            {gap}: 12px;
+            {margin-left}: 32px;
+            {margin-top}: 4px;
         }
         .source-badge {
-            font-size: 12px;
-            font-weight: 500;
-            color: #8a8f98;
-            background: #161718;
-            padding: 2px 8px;
-            border-radius: 9999px;
-            border: 1px solid #23252a;
+            {font-size}: 12px;
+            {font-weight}: 500;
+            {color}: #8a8f98;
+            {background}: #161718;
+            {padding}: 2px 8px;
+            {border-radius}: 9999px;
+            {border}: 1px solid #23252a;
         }
         .news-item:hover .source-badge {
-            background: #1e1f21;
+            {background}: #1e1f21;
         }
         .score-badge {
-            font-size: 12px;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 9999px;
+            {font-size}: 12px;
+            {font-weight}: 500;
+            {padding}: 2px 8px;
+            {border-radius}: 9999px;
         }
         .score-high {
-            color: #27a644;
-            background: rgba(39, 166, 68, 0.1);
-            border: 1px solid rgba(39, 166, 68, 0.2);
+            {color}: #27a644;
+            {background}: rgba(39, 166, 68, 0.1);
+            {border}: 1px solid rgba(39, 166, 68, 0.2);
         }
         .score-mid {
-            color: #5e6ad2;
-            background: rgba(94, 106, 210, 0.1);
-            border: 1px solid rgba(94, 106, 210, 0.2);
+            {color}: #5e6ad2;
+            {background}: rgba(94, 106, 210, 0.1);
+            {border}: 1px solid rgba(94, 106, 210, 0.2);
         }
         .score-low {
-            color: #8a8f98;
-            background: rgba(138, 143, 152, 0.06);
-            border: 1px solid #23252a;
+            {color}: #8a8f98;
+            {background}: rgba(138, 143, 152, 0.06);
+            {border}: 1px solid #23252a;
         }
         .news-summary {
-            font-size: 14px;
-            color: #8a8f98;
-            line-height: 1.5;
-            margin-left: 32px;
-            margin-top: 4px;
+            {font-size}: 14px;
+            {color}: #8a8f98;
+            {line-height}: 1.5;
+            {margin-left}: 32px;
+            {margin-top}: 4px;
         }
         .empty-state {
-            text-align: center;
-            padding: 80px 0;
-            color: #62666d;
+            {text-align}: center;
+            {padding}: 80px 0;
+            {color}: #62666d;
+            {font-size}: 16px;
+            {font-weight}: 400;
         }
-        .empty-state p {
-            font-size: 16px;
-            font-weight: 400;
+        .date-group-header {
+            {font-size}: 20px;
+            {font-weight}: 500;
+            {color}: #f7f8f8;
+            {margin-top}: 40px;
+            {margin-bottom}: 20px;
+            {border-bottom}: 1px solid #23252a;
+            {padding-bottom}: 10px;
         }
         footer {
-            margin-top: 80px;
-            padding-top: 24px;
-            border-top: 1px solid #23252a;
-            font-size: 12px;
-            color: #62666d;
+            {margin-top}: 80px;
+            {padding-top}: 24px;
+            {border-top}: 1px solid #23252a;
+            {font-size}: 12px;
+            {color}: #62666d;
         }
         @media (max-width: 600px) {
-            .container { padding: 48px 16px 80px; }
-            h1 { font-size: 24px; }
-            header { margin-bottom: 40px; }
+            .container { {padding}: 48px 16px 80px; }
+            h1 { {font-size}: 24px; }
+            header { {margin-bottom}: 40px; }
+            .news-meta { {margin-left}: 0; {margin-top}: 8px; {flex-wrap}: wrap; }
+            .news-summary { {margin-left}: 0; {margin-top}: 8px; } 
+            .news-item { {padding}: 16px; }
+            .date-group-header { {font-size}: 18px; {margin-top}: 30px; {margin-bottom}: 15px; }
         }
     </style>
 </head>
@@ -160,173 +171,8 @@
             <h1>Movie News Digest</h1>
         </header>
         <div class="divider"></div>
-        <ul class="news-list">
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">1</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/netflix-focus-pass-openai-sam-altman-movie-luca-guadagnino-1236626845/" target="_blank" rel="noopener">Netflix, Focus Pass on Luca Guadagnino’s ‘Artificial’ After Amazon MGM Studios Dropped Sam Altman-OpenAI Movie</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="score-badge score-mid">2pt</span>
-            </div>
-            <p class="news-summary">Meanwhile, A24 is said to have screened the film but its standing in the race to acquire the drama remains unclear.</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">2</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/2026-bentonville-film-festival-awards-1236963475/" target="_blank" rel="noopener">Bentonville Film Festival: ‘If I Go Will They Miss Me,’ ‘Jane Elliott Against The World’ Win Top Awards – Full List</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">The 12th annual Bentonville Film Festival wraps today after presenting awards in multiple categories Saturday night. If I Go Will They Miss Me, directed by Walter Thompson-Hernández, won the Best Narrative Award at the festival in Northwest Arkansas led by Geena Davis. Danielle Brooks, J. Alphonse N...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">3</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/reviews/peter-asher-everywhere-man-review-1236786332/" target="_blank" rel="noopener">‘Peter Asher: Everywhere Man’ Review: The Beatles-Era Pop Singer Turned Star Producer Gets His Own Boomer-centric Documentary</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-mid">2pt</span>
-            </div>
-            <p class="news-summary">Asher has a track record of achievement, but he’s also someone who gives off major boomer vibes; he’s got an aura, a mystique, a history of associational cool. "Everywhere Man" is well worth seeing, as long as you go in knowing that it’s a bit too infatuated with its subject, in that rose-colored Bo...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">4</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/box-office/toy-story-5-global-box-office-debut-obsession-backroom-milestones-1236786638/" target="_blank" rel="noopener">「トイ・ストーリー5」が全世界興収3億1200万ドルでシリーズ最高のオープニングを記録</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-high">5pt</span>
-            </div>
-            <p class="news-summary">大人気シリーズ最新作が歴代記録を更新。</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">5</span>
-                <span class="news-title"><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOM0pybmdwTHo0Ykh3U1dMQlRLQ2VyTWRkUFlTN1dtUzZ4V2dLSjd6U0xHX3FTcU9NS3BVenA0VkszNVJGdU55TGNCSlpTaGxVc3JFbjZJdU9qZ0xNZGZjWjBDUzBGZnZjQmtMTmVuOEk5Ni1lbmtQU0xaWTdvN0hKS3RjRkx4eWJwcm5vN1RFUy1CaDlOQ2xKazU0UlB2dnFzRE9IZC10blhRVWM4LUczSUF5cnVnSEYzOEE?oc=5" target="_blank" rel="noopener">「トイ・ストーリー5」が全世界興収3億1200万ドルでシリーズ最高のオープニングを記録</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Google News</span>
-                <span class="score-badge score-high">6pt</span>
-            </div>
-            <p class="news-summary">大人気シリーズ最新作が歴代記録を更新。</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">6</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/focus/karlovy-vary-film-festival-karel-och-2-1236768436/" target="_blank" rel="noopener">Karlovy Vary Film Festival Topper Karel Och Talks About the 60th Edition Lineup and Its Cinematic Ambitions for Regional Filmmakers and Beyond</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">Among pop-up bars, bandstands and opulent, 19th century spa buildings painted in sherbet pastels, the Karlovy Vary Intl. Film Festival (KVIFF) takes place each year in July, at the halfway mark between Cannes and Venice. For those weirdos among us who make a chunk of our living running the gauntlet ...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">7</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/aardman-mossy-bottom-go-timmy-danger-delilah-annecy-1236963464/" target="_blank" rel="noopener">Aardman Unveils Mossy Bottom-Set Show ‘Let’s Go Timmy!’; ‘The Almost (Untold) Story Of Danger Delilah’ & Fresh Details On ‘Pokémon Tales’- Annecy</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="score-badge score-mid">3pt</span>
-            </div>
-            <p class="news-summary">Aardman co-founders Peter Lord and David Sproxton, the company’s star director Nick Park and Executive Creative Director Sarah Cox hit the Annecy International Animation Film Festival on Sunday for a masterclass celebrating the studio’s 50th anniversary. There were plenty of anecdotes but the 90-min...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">8</span>
-                <span class="news-title"><a href="https://variety.com/2026/tv/global/new-pokemon-timmy-series-upcoming-shorts-aardman-annecy-1236786337/" target="_blank" rel="noopener">アードマンが新作「ひつじのショーン」スピンオフと「ポケモン・テールズ」の詳細を発表</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-low">1pt</span>
-            </div>
-            <p class="news-summary">アードマン・アニメーションズが人気IPの新作情報を公開。</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">9</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/global/luca-guadagnino-artificial-sam-altman-netflix-a24-mubi-1236786623/" target="_blank" rel="noopener">Netflix, A24 and Focus Pass on Luca Guadagnino’s ‘Artificial’ as Mubi Circles (EXCLUSIVE)</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">Several of the buyers who screened Luca Guadagnino’s hotly anticipated “Artificial” in the days after Amazon MGM Studios abruptly dropped the film have passed on acquiring it, sources tell Variety. Focus Features, Warner Bros.’ Clockwork, A24 and Netflix have all stepped away, according to those sou...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">10</span>
-                <span class="news-title"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPMkd6bHVrMGRjb1JUU3d5LTUtenlELXBuaEdGMFZwQ0Z4cm9xTk1MTVo3aE42MjVVa1QxNEZnMHVxaVlocnRVSVJPdTRGZjRLWjhQajQ1elZFSm0wS0FTMEdQSXVQZ2ZfVWFiNE5oWk1IMDQ4TzREamVuVmJYdDlwR3ZXU1lCdVdMOW51Q3F2ZzB3SXAzSWZ1dDlaZXZ2NEkwbGdETnNB?oc=5" target="_blank" rel="noopener">Netflix, A24 and Focus Pass on Luca Guadagnino’s ‘Artificial’ as Mubi Circles (EXCLUSIVE) - Variety</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Google News</span>
-                <span class="score-badge score-low">1pt</span>
-            </div>
-            <p class="news-summary">Netflix, A24 and Focus Pass on Luca Guadagnino’s ‘Artificial’ as Mubi Circles (EXCLUSIVE) Variety See more headlines & perspectives on Google News</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">11</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/legally-blonde-jennifer-coolidge-thought-auditioning-elle-1236963411/" target="_blank" rel="noopener">ジェニファー・クーリッジ、「キューティ・ブロンド」のオーディションでエル役を演じるつもりだったと告白</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="score-badge score-high">6pt</span>
-            </div>
-            <p class="news-summary">有名女優ジェニファー・クーリッジの意外なオーディション秘話。</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">12</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/reese-witherspoon-passing-pink-torch-elle-star-lexi-minetree-1236963395/" target="_blank" rel="noopener">ジェニファー・クーリッジ、「キューティ・ブロンド」のオーディションでエル役を演じるつもりだったと告白</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="score-badge score-high">8pt</span>
-            </div>
-            <p class="news-summary">有名女優ジェニファー・クーリッジの意外なオーディション秘話。</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">13</span>
-                <span class="news-title"><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxONDZ2Rkh1U3hiQzhRVUNIelM1amZ1Q0V0LV83blVoZTlVanN2UjROX1VmUzM3LUtkOWxzTFhQYVNLZUFLNjgybVd4a2RJSHVxeVNqZE1URDE1SXJDTDRZcC1CUVNOUEM4bV9nTUZPMWxpU0dRSVBDdkF1YVJSZURveVdBMGtQOFpObmJNZ0R5SjE5OWRDRTBPZXVRNlNzRURfUHFZ?oc=5" target="_blank" rel="noopener">Reese Witherspoon Passes "Pink Torch" To 'Elle' Star Lexi Minetree - Deadline</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Google News</span>
-                <span class="score-badge score-high">7pt</span>
-            </div>
-            <p class="news-summary">Reese Witherspoon Passes "Pink Torch" To 'Elle' Star Lexi Minetree Deadline ‘Legally Blonde’ Stars Reunite for First Time in 25 Years Ahead of ‘Elle’ Prequel Series Yahoo News Canada Reese Witherspoon & Elle Star Lexi Minetree Celebrate Legally Blonde in N.Y.C., Plus The Weeknd and More People.com A...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">14</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/toy-story-5-box-office-opening-1236626614/" target="_blank" rel="noopener">「トイ・ストーリー5」が全世界興収3億1200万ドルでシリーズ最高のオープニングを記録</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="score-badge score-mid">3pt</span>
-            </div>
-            <p class="news-summary">大人気シリーズ最新作が歴代記録を更新。</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">15</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/box-office/toy-story-5-box-office-opening-weekend-record-franchise-1236786574/" target="_blank" rel="noopener">「トイ・ストーリー5」が全世界興収3億1200万ドルでシリーズ最高のオープニングを記録</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-high">5pt</span>
-            </div>
-            <p class="news-summary">大人気シリーズ最新作が歴代記録を更新。</p>
-        </li>
-    </ul>
+
+        <div class="empty-state"><p>本日のニュース候補はありません</p></div>
         <footer>Powered by Movie News Scan</footer>
     </div>
 </body>
