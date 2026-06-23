@@ -1,146 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie News Digest — 2026-06-23 10:59:02</title>
+    <title>Movie News Digest — 2026-06-23 12:00:00</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #f7f8f8;
-            background-color: #08090a;
+            line-height: 1.6; color: #f7f8f8; background-color: #08090a;
             -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 24px 120px;
-        }
+        .container { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
         header { margin-bottom: 64px; }
-        .date {
-            font-size: 13px;
-            font-weight: 500;
-            color: #8a8f98;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 300;
-            letter-spacing: -0.7px;
-            line-height: 1.13;
-            color: #f7f8f8;
-        }
-        .divider {
-            width: 100%;
-            height: 1px;
-            background: #23252a;
-            margin: 32px 0;
-        }
-        .news-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-        .news-item {
-            padding: 20px 16px;
-            border-radius: 8px;
-            transition: background-color 0.15s ease;
-        }
+        .date { font-size: 13px; font-weight: 500; color: #8a8f98; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+        h1 { font-size: 32px; font-weight: 300; letter-spacing: -0.7px; line-height: 1.13; color: #f7f8f8; }
+        .divider { width: 100%; height: 1px; background: #23252a; margin: 32px 0; }
+        .news-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+        .news-item { padding: 20px 16px; border-radius: 8px; transition: background-color 0.15s ease; }
         .news-item:hover { background-color: #161718; }
-        .news-header {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-        .news-number {
-            font-size: 13px;
-            font-weight: 500;
-            color: #62666d;
-            min-width: 20px;
-        }
-        .news-title {
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: -0.2px;
-        }
+        .news-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+        .news-number { font-size: 13px; font-weight: 500; color: #62666d; min-width: 20px; }
+        .news-title { font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -0.2px; }
         .news-title a { color: #f7f8f8; text-decoration: none; }
         .news-title a:hover { color: #5e6ad2; }
-        .news-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: 32px;
-            margin-top: 4px;
-        }
-        .source-badge {
-            font-size: 12px;
-            font-weight: 500;
-            color: #8a8f98;
-            background: #161718;
-            padding: 2px 8px;
-            border-radius: 9999px;
-            border: 1px solid #23252a;
-        }
+        .news-meta { display: flex; align-items: center; gap: 12px; margin-left: 32px; margin-top: 4px; }
+        .source-badge { font-size: 12px; font-weight: 500; color: #8a8f98; background: #161718; padding: 2px 8px; border-radius: 9999px; border: 1px solid #23252a; }
         .news-item:hover .source-badge { background: #1e1f21; }
-        .multi-badge {
-            font-size: 11px;
-            font-weight: 500;
-            color: #d0a020;
-            background: rgba(208, 160, 32, 0.08);
-            padding: 2px 8px;
-            border-radius: 9999px;
-            border: 1px solid rgba(208, 160, 32, 0.2);
-        }
-        .score-badge {
-            font-size: 12px;
-            font-weight: 500;
-            padding: 2px 8px;
-            border-radius: 9999px;
-        }
-        .score-high {
-            color: #27a644;
-            background: rgba(39, 166, 68, 0.1);
-            border: 1px solid rgba(39, 166, 68, 0.2);
-        }
-        .score-mid {
-            color: #5e6ad2;
-            background: rgba(94, 106, 210, 0.1);
-            border: 1px solid rgba(94, 106, 210, 0.2);
-        }
-        .score-low {
-            color: #8a8f98;
-            background: rgba(138, 143, 152, 0.06);
-            border: 1px solid #23252a;
-        }
-        .news-summary {
-            font-size: 14px;
-            color: #8a8f98;
-            line-height: 1.5;
-            margin-left: 32px;
-            margin-top: 4px;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 80px 0;
-            color: #62666d;
-            font-size: 16px;
-        }
-        footer {
-            margin-top: 80px;
-            padding-top: 24px;
-            border-top: 1px solid #23252a;
-            font-size: 12px;
-            color: #62666d;
-        }
+        .score-badge { font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 9999px; }
+        .score-high { color: #27a644; background: rgba(39, 166, 68, 0.1); border: 1px solid rgba(39, 166, 68, 0.2); }
+        .score-mid { color: #5e6ad2; background: rgba(94, 106, 210, 0.1); border: 1px solid rgba(94, 106, 210, 0.2); }
+        .score-low { color: #8a8f98; background: rgba(138, 143, 152, 0.06); border: 1px solid #23252a; }
+        .news-summary { font-size: 14px; color: #8a8f98; line-height: 1.5; margin-left: 32px; margin-top: 4px; }
+        .empty-state { text-align: center; padding: 80px 0; color: #62666d; font-size: 16px; }
+        footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid #23252a; font-size: 12px; color: #62666d; }
         @media (max-width: 600px) {
             .container { padding: 48px 16px 80px; }
             h1 { font-size: 24px; }
@@ -149,7 +45,6 @@
             .news-summary { margin-left: 0; margin-top: 8px; }
             .news-item { padding: 16px; }
         }
-
     </style>
 </head>
 <body>
@@ -160,175 +55,187 @@
         </header>
         <div class="divider"></div>
         <ul class="news-list">
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">1</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/news/tom-hanks-ai-woody-voice-toy-story-6-1236787237/" target="_blank" rel="noopener">Tom Hanks Says Disney Could Use AI to Recreate Woody's Voice for ‘Toy Story 6' and Beyond If He Doesn't Return: ‘It's a Scary Thought'</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-high">8pt</span>
-            </div>
-            <p class="news-summary">Tom Hanks is back as Woody in “Top Story 5,” which set a franchise record with its massive $312 million worldwide opening. Given the enduring popularity of the 31-year-old franchise, people are already wondering if “Toy Story 6” is an inevitability. But would two-time Oscar winner Hanks return as Wo...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">2</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/news/tom-holland-zendaya-robert-downey-jr-avengers-doomsday-1236787160/" target="_blank" rel="noopener">Tom Holland Told Zendaya ‘Right Away' That ‘Robert Downey Jr. Is Coming Back' to Marvel After Finding Out Early About ‘Avengers: Doomsday'</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-high">6pt</span>
-            </div>
-            <p class="news-summary">Tom Holland knew Robert Downey Jr. was returning to Marvel as Doctor Doom long before the studio announced it to the public. Holland is infamous among Marvel fans for letting spoilers slip early (the YouTube compilation titled “Tom Holland Spoiling Marvel Movies for 13 Minutes Straight” has 21 milli...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">3</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/news/keanu-reeves-lego-movie-toy-story-4-director-josh-cooley-1236787428/" target="_blank" rel="noopener">Keanu Reeves Set to Star in New Lego Movie From ‘Toy Story 4' Director Josh Cooley</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-high">6pt</span>
-            </div>
-            <p class="news-summary">Keanu Reeves is circling the lead role in a new “Lego” movie from “Toy Story 4” director Josh Cooley. The untitled project will reunite Cooley and Reeves, who voiced the stuntman action figure Duke Caboom in the fourth “Toy Story” installment. Universal declined to comment. Universal is backing the ...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">4</span>
-                <span class="news-title"><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQSGRLR2RtVXQwSW56eTJEckwzTnhHMHVtSnhhQXFGVDduTFpwbUJkb2JmUTA0T21Ld1lsQ3hxdTBJdXQ1ZzJDbUVXdHR6VWNBcDRzSmRxTXJUYmphNE43aHB0TkJ5b2xBODFzN0tnMm9Wa25weGQyZXdjRWh4bW1ZMnFsTUhNVGU0dWJscmFCV0VOczlqRDExaTBqOHA2UQ?oc=5" target="_blank" rel="noopener">Reese Witherspoon tears up as Legally Blonde cast reunites ahead of Elle prequel series</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Google News</span>
-                <span class="score-badge score-high">6pt</span>
-            </div>
-            <p class="news-summary">Reese Witherspoon tears up as Legally Blonde cast reunites ahead of Elle prequel series Entertainment Weekly ‘Elle’ Photo Call Celebration: Reese Witherspoon, Selma Blair and More Celebrity Style, Photos WWD Ali Larter’s 2 Children Make Rare Red Carpet Appearance with Mom in N.Y.C.: Photos People.co...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">5</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/eric-andre-jackie-chan-little-brother-comedy-means-business-1236964407/" target="_blank" rel="noopener">Eric André Talks Jackie Chan, Mob-Run Stand-Up Venues, New Netflix Comedy ‘Little Brother' & Penning ‘Film Scores For Films That Don't Exist' – Comedy Means Business Podcast</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="score-badge score-mid">3pt</span>
-            </div>
-            <p class="news-summary">There’s an interesting paradox at the heart of Eric André’s career: Here’s someone whose brand is built on raunchy, chaotic unpredictability whose work is made possible by a very different set of qualities. Sure, André admits: A good percentage of his work comes down to “the stupidest poop and pee j...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">6</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/2026-shanghai-film-festival-takeaways-1236626719/" target="_blank" rel="noopener">Shanghai: Three Things We Learned From the 2026 Festival</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="score-badge score-mid">2pt</span>
-            </div>
-            <p class="news-summary">A first-time director takes the Golden Goblet, AI dominates every conversation and a 1961 classic leaves a packed house breathless.</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">7</span>
-                <span class="news-title"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQUjdQa2k5X3loQUVqdGZVSlZ5bm5YU1VkY29PcUR1X2JHZkgtcVdxRFgyb2V5X3JmeTJYbTVkNDlXNVA0UjgxNmVrNE5MRndickhUejJyUnFoWkpyVWhFZHQwM1ZId3lvMkdsNlhwRkpSbUtGMzRRa3p3NDByQUpUTmU3LU1fYjI4bmZLVW92Y3RSd0FHQ0ZxV3h2U0s2X0puTmc?oc=5" target="_blank" rel="noopener">Google DeepMind bets $75M on AI's future in Hollywood with A24 deal - TechCrunch</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Google News</span>
-                <span class="score-badge score-mid">2pt</span>
-            </div>
-            <p class="news-summary">Google DeepMind bets $75M on AI’s future in Hollywood with A24 deal TechCrunch Google Invests $75 Million in A24 to Develop AI-Powered Filmmaking Tools Variety Google DeepMind and A24 announce first-of-its-kind research partnership blog.google Exclusive | Google Investing in ‘Backrooms’ Studio A24 a...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">8</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/madonna-falling-out-universal-pictures-biopic-budget-1236964487/" target="_blank" rel="noopener">Madonna On "Falling Out" With Universal Pictures Over Biopic: "I've Had a Huge Life, So I Needed a Big Budget"</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="multi-badge">2社報道</span>
-                <span class="score-badge score-low">1pt</span>
-            </div>
-            <p class="news-summary">Madonna is opening up about the biopic that Universal Pictures axed and revealing why it did not move forward. In a new interview, the Material Girl said the main reason the biopic was shelved was the budget. “I was supposed to make a movie about my life. I worked on my script for two years […]</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">9</span>
-                <span class="news-title"><a href="https://deadline.com/2026/06/netflix-hannah-minghella-kira-goldberg-1236964284/" target="_blank" rel="noopener">Netflix Brings Animation Under Hannah Minghella; Kira Goldberg Adds Live-Action Family Film To Purview</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Deadline</span>
-                <span class="multi-badge">4社報道</span>
-                <span class="score-badge score-low">1pt</span>
-            </div>
-            <p class="news-summary">With the success of Kpop Demon Hunters, Netflix is bringing feature animation squarely under the domain of Hannah Minghella. Previously, the Sony and Bad Robot Production exec oversaw both live-action family and animation. Minghella gets the new title of Head of Netflix Animation Studio, overseeing ...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">10</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-features/jodie-comer-talks-the-death-of-robin-hood-ending-1236626711/" target="_blank" rel="noopener">Jodie Comer Talks ‘The Death of Robin Hood' Ending and the Need for Revisionist Tales</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="multi-badge">2社報道</span>
-                <span class="score-badge score-low">1pt</span>
-            </div>
-            <p class="news-summary">The star says of Michael Sarnoski’s radical take on the folk hero: “In a world where we remake a lot of the same material, it's important that we give space for something new."</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">11</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/news/freddy-13th-movie-paramount-1236787413/" target="_blank" rel="noopener">‘Freddy the 13th' Animated Movie Set at Paramount With ‘Predator: Badlands' Director Dan Trachtenberg</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="multi-badge">2社報道</span>
-                <span class="score-badge score-low">1pt</span>
-            </div>
-            <p class="news-summary">“Predator: Badlands” director Dan Trachtenberg is developing “Freddy the 13th,” an animated movie based on the graphic horror novel about the fictional Freddy Vanwinkle, a hapless 13th-born son who seems to fails at everything he does. Though “Freddy the 13th” sounds scary, the studio promises a “wh...</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">12</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/china-lion-feng-xiaogangs-i-know-who-you-are-north-america-1236628047/" target="_blank" rel="noopener">China Lion Takes Feng Xiaogang's ‘I Know Who You Are' for North America</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">The cat-and-mouse drama, starring Lei Jiayin and Hu Ge, reaches theaters in the U.S., Canada, Australia and New Zealand in early July, days after its China debut.</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">13</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/lucelia-santos-china-shanghai-film-festival-1236626956/" target="_blank" rel="noopener">Why a Brazilian Soap Star Is Beloved by Hundreds of Millions in China</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">Forty years after 'Escrava Isaura' swept the country, Lucélia Santos — the first foreign actress to win China's Golden Eagle Award — has returned to Shanghai.</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">14</span>
-                <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/spanish-content-shanghai-film-market-1236627260/" target="_blank" rel="noopener">Spanish Producers Showcase Content, Global Reach at Shanghai Film & TV Market</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">THR</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">A state-backed roadshow of genre-blurring shorts — plus a talk featuring Spanish filmmaker Albert Serra and Chinese auteur Bi Gan — lands in Shanghai as Spanish cinema rides a global hot streak.</p>
-        </li>
-        <li class="news-item">
-            <div class="news-header">
-                <span class="news-number">15</span>
-                <span class="news-title"><a href="https://variety.com/2026/film/news/michael-ovitz-deposition-jeffrey-epstein-julia-ormond-1236787721/" target="_blank" rel="noopener">Michael Ovitz Storms Out of Deposition After Being Asked About Jeffrey Epstein</a></span>
-            </div>
-            <div class="news-meta">
-                <span class="source-badge">Variety</span>
-                <span class="score-badge score-low">0pt</span>
-            </div>
-            <p class="news-summary">Michael Ovitz, the co-founder of CAA, stormed out of a deposition on June 1 after being asked about his friendship with Jeffrey Epstein. Ovitz was being questioned by a lawyer for Julia Ormond, the actress who has sued CAA for allegedly setting her up to be sexually assaulted by Harvey Weinstein in ...</p>
-        </li>
+            <!-- 各ニュースアイテム -->
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">1</span>
+                    <span class="news-title"><a href="https://variety.com/2026/film/news/tom-hanks-ai-woody-voice-toy-story-6-1236787237/" target="_blank" rel="noopener">Tom Hanks Says Disney Could Use AI to Recreate Woody’s Voice for ‘Toy Story 6’ and Beyond if He Doesn’t Return: ‘It’s a Scary Thought’</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-high">8pt</span>
+                </div>
+                <p class="news-summary">人気俳優トム・ハンクスが「トイ・ストーリー」の未来について語る！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">2</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOMWpuNkY3SUJGTWFVdWVkc29Cajk3SGd1YW1uMUYwejFhS3QyczNxVDdrQkgzM1psRjVIMmFhNEpuTFc1Z29Eb3lqQXhWNVZwSmNXZ3h3U1pTam43QVk2c2REbkRzbHRtb0NMX2l5alhpbXJPWDVjQk5KbWx2ZFdfVFZDc3lFYVZEUkJVUUpoUTdCMDRPUHNtWmRtYkhEUzB4RXltUWY5UmlHemtNYjRiVnk4bzluTHF1NHdKaVJ6LWtOZVJnY1ZqZ1U0NFktQQ?oc=5" target="_blank" rel="noopener">‘Toy Story 5’ Streaming: Disney Unlikely To Change PVOD Strategy Despite Big Opening - Forbes</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-high">5pt</span>
+                </div>
+                <p class="news-summary">世界中で愛される人気フランチャイズ「トイ・ストーリー」の最新情報！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">3</span>
+                    <span class="news-title"><a href="https://deadline.com/gallery/spider-man-brand-new-day-red-carpet-photos-zendaya-tom-holland/" target="_blank" rel="noopener">‘Spider-Man: Brand New Day’ Red Carpet Photos: All Of Zendaya & Tom Holland’s Looks From Press Tour</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-high">5pt</span>
+                </div>
+                <p class="news-summary">人気スーパーヒーロー「スパイダーマン」の新作に関する情報でファン注目！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">4</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQUjdQa2k5X3loQUVqdGZVSlZ5bm5YU1VkY29PcUR1X2JHZkgtcVdxRFgyb2V5X3JmeTJYbTVkNDlXNVA0UjgxNmVrNE5MRndickhUejJyUnFoWkpyVWhFZHQwM1ZId3lvMkdsNlhwRkpSbUtGMzRRa3p3NDByQUpUTmU3LU1fYjI4bmZLVW92Y3RSd0FHQ0ZxV3h2U0s2X0puTmc?oc=5" target="_blank" rel="noopener">Google DeepMind bets $75M on AI’s future in Hollywood with A24 deal - TechCrunch</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-high">5pt</span>
+                </div>
+                <p class="news-summary">ハリウッドにおけるAIの未来にGoogle DeepMindが大型投資！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">5</span>
+                    <span class="news-title"><a href="https://variety.com/2026/film/global/toei-animation-monkey-quest-1236787858/" target="_blank" rel="noopener">Japan’s Toei Animation Impresses at Annecy With ‘Monkey Quest,’ a Japan-U.S. Animation Blender</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-high">5pt</span>
+                </div>
+                <p class="news-summary">東映アニメーションと米国による共同制作アニメ「Monkey Quest」に注目！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">6</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/06/forgotten-island-team-on-filipino-culture-lea-salonga-1236964786/" target="_blank" rel="noopener">DreamWorks’ ‘Forgotten Island’ Creators On Their “Love Letter To Filipino Culture” & Casting Filipina Superstar Lea Salonga As Their Main Villain — Annecy</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-high">3pt</span>
+                </div>
+                <p class="news-summary">映画ファン必見の話題作や業界情報をピックアップ！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">7</span>
+                    <span class="news-title"><a href="https://variety.com/2026/film/global/agnieszka-holland-marlene-dietrich-biopic-berlinweh-1236787881/" target="_blank" rel="noopener">Agnieszka Holland to Direct Marlene Dietrich Biopic ‘Berlinweh – Yearning for a Home’</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-high">3pt</span>
+                </div>
+                <p class="news-summary">著名監督アグニエシュカ・ホランドがマレーネ・ディートリッヒの伝記映画を監督！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">8</span>
+                    <span class="news-title"><a href="https://variety.com/2026/film/global/dustin-hoffman-juliette-binoche-jeffrey-wright-karlovy-vary-1236787921/" target="_blank" rel="noopener">Dustin Hoffman, Juliette Binoche, Jeffrey Wright to Be Honored at Karlovy Vary Film Festival</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-high">3pt</span>
+                </div>
+                <p class="news-summary">ダスティン・ホフマンら大御所俳優が映画祭で功労賞を受賞！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">9</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/06/steven-soderbergh-jaws-production-02074-app-spielberg-making-of-1236964395/" target="_blank" rel="noopener">Steven Soderbergh Launches ‘Jaws’ Tribute App ‘Production 02074’, Creates Inventive Format For Spielberg’s Making-Of Shark Tale</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-high">3pt</span>
+                </div>
+                <p class="news-summary">鬼才スティーヴン・ソダーバーグが「ジョーズ」に捧げる画期的なアプリを発表！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">10</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/06/madonna-falling-out-universal-pictures-biopic-budget-1236964487/" target="_blank" rel="noopener">Madonna On “Falling Out” With Universal Pictures Over Biopic: “I’ve Had a Huge Life, So I Needed a Big Budget”</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-high">3pt</span>
+                </div>
+                <p class="news-summary">マドンナの伝記映画の制作中止に関する衝撃の理由が明らかに！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">11</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/06/kevin-bacon-to-star-summoner-horror-film-amazon-mgm-1236964665/" target="_blank" rel="noopener">Kevin Bacon Set For Amazon MGM Horror Film ‘Summoner’ From Jeremy Slater</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-high">3pt</span>
+                </div>
+                <p class="news-summary">ケヴィン・ベーコン主演の新作ホラー映画の情報が解禁！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">12</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/06/netflix-steps-cinderella-director-movie-straight-to-streaming-1236964778/" target="_blank" rel="noopener">Director Of Netflix’s ‘Cinderella’ Reimagining Welcomes Movie Going Straight To Streaming — Annecy</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">2pt</span>
+                </div>
+                <p class="news-summary">Netflixが贈る「シンデレラ」再構築版、ストリーミング配信への期待が高まる！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">13</span>
+                    <span class="news-title"><a href="https://variety.com/2026/film/global/steps-netflix-animation-annecy-hsu-wong-middler-seyfried-1236787924/" target="_blank" rel="noopener">Cinderella’s So-Called Evil Sisters Shine in Netflix Title ‘Steps,’ Sneak Peeked at Annecy</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-mid">2pt</span>
+                </div>
+                <p class="news-summary">映画ファン必見の話題作や業界情報をピックアップ！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">14</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/06/webtoon-on-lore-olympus-anime-perfect-addiction-annecy-1236962777/" target="_blank" rel="noopener">Webtoon Productions Animation Boss: American Buyers Have Finally Embraced Anime — Annecy</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">2pt</span>
+                </div>
+                <p class="news-summary">映画ファン必見の話題作や業界情報をピックアップ！</p>
+            </li>
+            
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">15</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxNRTRmOHBXZjUxaVRWMFR5NG53Zjg0VWFkeEpVUlBFcC1PakVwclA0WWo2b1ExZlZZLUpDR1ZuLU1QSWFyalo4VzZJQ292MFdUX01mZDE5bFVZWDRpTG9adEpjTDM2cXM4Y0VVOTRCN2R2bjhfTWNkekRDSi1yU0dIV3dLSW9OMFUxQlFUUzNIOXNTZ0pxS2NZ?oc=5" target="_blank" rel="noopener">‘Hot Ones’ Spinoff ‘Extra Heat’ Fires Up at Netflix - The Hollywood Reporter</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-mid">2pt</span>
+                </div>
+                <p class="news-summary">人気企画「ホット・ワンズ」のスピンオフがNetflixで始動！</p>
+            </li>
         </ul>
         <footer>Powered by Movie News Scan</footer>
     </div>
