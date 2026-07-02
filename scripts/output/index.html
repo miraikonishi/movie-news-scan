@@ -1,226 +1,133 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie News Digest — 2026-06-30 10:30:00</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>映画ニュース速報</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6; color: #f7f8f8; background-color: #08090a;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
-        header { margin-bottom: 64px; }
-        .date { font-size: 13px; font-weight: 500; color: #8a8f98; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
-        h1 { font-size: 32px; font-weight: 300; letter-spacing: -0.7px; line-height: 1.13; color: #f7f8f8; }
-        .divider { width: 100%; height: 1px; background: #23252a; margin: 32px 0; }
-        .news-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-        .news-item { padding: 20px 16px; border-radius: 8px; transition: background-color 0.15s ease; }
-        .news-item:hover { background-color: #161718; }
-        .news-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
-        .news-number { font-size: 13px; font-weight: 500; color: #62666d; min-width: 20px; }
-        .news-title { font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -0.2px; }
-        .news-title a { color: #f7f8f8; text-decoration: none; }
-        .news-title a:hover { color: #5e6ad2; }
-        .news-meta { display: flex; align-items: center; gap: 12px; margin-left: 32px; margin-top: 4px; }
-        .source-badge { font-size: 12px; font-weight: 500; color: #8a8f98; background: #161718; padding: 2px 8px; border-radius: 9999px; border: 1px solid #23252a; }
-        .news-item:hover .source-badge { background: #1e1f21; }
-        .score-badge { font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 9999px; }
-        .score-high { color: #27a644; background: rgba(39, 166, 68, 0.1); border: 1px solid rgba(39, 166, 68, 0.2); }
-        .score-mid { color: #5e6ad2; background: rgba(94, 106, 210, 0.1); border: 1px solid rgba(94, 106, 210, 0.2); }
-        .score-low { color: #8a8f98; background: rgba(138, 143, 152, 0.06); border: 1px solid #23252a; }
-        .news-summary { font-size: 14px; color: #8a8f98; line-height: 1.5; margin-left: 32px; margin-top: 4px; }
-        .empty-state { text-align: center; padding: 80px 0; color: #62666d; font-size: 16px; }
-        footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid #23252a; font-size: 12px; color: #62666d; }
-        @media (max-width: 600px) {
-            .container { padding: 48px 16px 80px; }
-            h1 { font-size: 24px; }
-            header { margin-bottom: 40px; }
-            .news-meta { margin-left: 0; margin-top: 8px; flex-wrap: wrap; }
-            .news-summary { margin-left: 0; margin-top: 8px; }
-            .news-item { padding: 16px; }
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        h1 { color: #0056b3; text-align: center; margin-bottom: 30px; border-bottom: 2px solid #e0e0e0; padding-bottom: 15px; }
+        .news-item { background-color: #e9f0f7; border-left: 5px solid #007bff; margin-bottom: 20px; padding: 15px; border-radius: 8px; transition: transform 0.2s ease-in-out; }
+        .news-item:hover { transform: translateY(-5px); }
+        .news-item h2 { color: #0056b3; font-size: 1.3em; margin-top: 0; margin-bottom: 10px; }
+        .news-item a { text-decoration: none; color: #007bff; font-weight: bold; }
+        .news-item a:hover { text-decoration: underline; color: #004085; }
+        .news-item p { font-size: 0.9em; line-height: 1.6; color: #555; }
+        .news-item .source { font-size: 0.8em; color: #777; text-align: right; margin-top: 10px; }
+        .recommendation { font-style: italic; color: #28a745; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <p class="date">2026年06月30日（火曜日）</p>
-            <h1>Movie News Digest</h1>
-        </header>
-        <div class="divider"></div>
-        <ul class="news-list">
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">1</span>
-                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQRXViNG82NFdiWXRMUlBmN2U3LTAtaHRONlZfOHFmUUNFdC1HZmkzcmI1MjMwS1F6d0t0UWdOU2c4ZFVRdTRYSUxBX05qa3lTNHRtVERKZ1BTaWJvb05scVQ2VEVtMnBMZVJNVjV5WUpncjBiSTRRZDJpSkF4a1NEaXFPc21pZUdvSTF3ZWVva3hhd2pHU21FODNQdVVyaHJkd1E?oc=5" target="_blank" rel="noopener">ロバート・エガース監督作『Werwulf』予告編公開、アーロン・テイラー＝ジョンソンが狼男に変身</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Google News</span>
-                    <span class="score-badge score-high">7pt</span>
-                </div>
-                <p class="news-summary">ロバート・エガース監督とアーロン・テイラー＝ジョンソン主演の注目作。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">2</span>
-                    <span class="news-title"><a href="https://deadline.com/2026/06/colin-farrell-steve-coogan-peppiatt-netflix-bad-bridgets-1236970817/" target="_blank" rel="noopener">Colin FarrellらがNetflixアイルランド時代劇スリラー『Bad Bridgets』に参加</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Deadline</span>
-                    <span class="score-badge score-high">6pt</span>
-                </div>
-                <p class="news-summary">コリン・ファレルら豪華キャストが出演するNetflix新作。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">3</span>
-                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQYUo0VkU0UFNzWHh4VHZHcndRTDhyRThlY3NWNUs4aTJCZnkyMDdRQnRVcU05REhXUkh5RTJvdjJIMDlWeERtTnFrTnhTSXJ2WTNUTWE1c0hDWS1zai1mRUJtbnlYcGQ5NmhXaHFkT083OXJTUzJXVm15WURPSWJaLVB1UEpyVjFnbjBuVWNfSUpNTEx1UkZMMUJzelRqYlhHM21Ga1IxdVMwTHItZWdJ?oc=5" target="_blank" rel="noopener">人気ゲーム『ペルソナ』がNetflixで実写ドラマ化へ</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Google News</span>
-                    <span class="score-badge score-high">6pt</span>
-                </div>
-                <p class="news-summary">日本でも大人気のゲーム「ペルソナ」がNetflixで実写ドラマ化。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">4</span>
-                    <span class="news-title"><a href="https://variety.com/2026/film/news/carl-rinsch-sentence-30-months-keanu-reeves-netflix-1236798838/" target="_blank" rel="noopener">キアヌ・リーブスが証言、Netflix詐欺事件でカール・リンシュ監督に実刑判決</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Variety</span>
-                    <span class="score-badge score-high">6pt</span>
-                </div>
-                <p class="news-summary">キアヌ・リーブスが証言したNetflix詐欺事件で監督に実刑判決。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">5</span>
-                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQdlZYeU5QeUFzRGNELUVIb0JZNjZOdEY4QnN1V2pyQU5ncmlQbnpWRWlJNUJWREd1T0xKWnlEekRDRl9SZjBHeXF0bDVQa1hzb3ZFZl9FTjZibDJfbUVlQzhuXzBzam5wVk8yRlQzNk1wRnIyOE1mRmRtUXdEY0pVUHJLY0dKdUZoM0g3SkgybHREOWc?oc=5" target="_blank" rel="noopener">『スーパーガール』が1億ドルの損失か：DCスタジオが学ぶべきこと</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Google News</span>
-                    <span class="score-badge score-high">6pt</span>
-                </div>
-                <p class="news-summary">DC映画『スーパーガール』の巨額損失から学ぶべき教訓とは。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">6</span>
-                    <span class="news-title"><a href="https://deadline.com/2026/06/walton-goggins-saved-olivia-wilde-life-1236970700/" target="_blank" rel="noopener">オリヴィア・ワイルド、ウォルトン・ゴギンズが撮影現場で命を救ってくれたと語る</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Deadline</span>
-                    <span class="score-badge score-mid">4pt</span>
-                </div>
-                <p class="news-summary">オリヴィア・ワイルドが語る、ウォルトン・ゴギンズが撮影現場で命を救った驚きのエピソード。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">7</span>
-                    <span class="news-title"><a href="https://variety.com/2026/06/film/global/armie-hammer-citizen-vigilante-worldwide-distribution-1236799025/" target="_blank" rel="noopener">アーミー・ハマー復帰作『Citizen Vigilante』がイーロン・マスクの介入により世界配給を獲得</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Variety</span>
-                    <span class="score-badge score-mid">3pt</span>
-                </div>
-                <p class="news-summary">イーロン・マスクの介入により、物議を醸すアーミー・ハマー復帰作が世界配給へ。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">8</span>
-                    <span class="news-title"><a href="https://deadline.com/2026/06/james-bond-casting-director-requirements-1236970773/" target="_blank" rel="noopener">次期ジェームズ・ボンドに必要な「絶対不可欠な」資質とは？ 元キャスティングディレクターが明かす</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Deadline</span>
-                    <span class="score-badge score-mid">3pt</span>
-                </div>
-                <p class="news-summary">次期ジェームズ・ボンドに求められる「絶対不可欠な」資質とは？</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">9</span>
-                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/angry-birds-movie-3-trailer-jason-sudeikis-josh-gad-1236633526/" target="_blank" rel="noopener">『アングリーバード ムービー3』予告編公開、ジェイソン・サダイキスらが親の苦悩を描く</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">THR</span>
-                    <span class="score-badge score-mid">3pt</span>
-                </div>
-                <p class="news-summary">『アングリーバード』シリーズ最新作の予告編が公開、家族の課題を描く。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">10</span>
-                    <span class="news-title"><a href="https://deadline.com/2026/06/flula-borg-troy-kotsur-to-star-the-american-winner-1236970615/" target="_blank" rel="noopener">アカデミー賞受賞者トロイ・コッツァー出演の風刺ホラー映画が撮影終了</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Deadline</span>
-                    <span class="score-badge score-mid">3pt</span>
-                </div>
-                <p class="news-summary">アカデミー賞受賞者トロイ・コッツァー出演の風刺ホラー映画が撮影終了。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">11</span>
-                    <span class="news-title"><a href="https://variety.com/2026/06/film/news/ranbir-kapoor-yash-ramayana-imdb-most-anticipated-indian-movies-2026-1236798177/" target="_blank" rel="noopener">インドの大作映画『Ramayana』がIMDbの期待作リストで首位を獲得</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Variety</span>
-                    <span class="score-badge score-mid">2pt</span>
-                </div>
-                <p class="news-summary">インドの大作映画『Ramayana』がIMDbの期待作リストで首位を獲得。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">12</span>
-                    <span class="news-title"><a href="https://deadline.com/2026/06/nbcuniversal-sky-comcast-split-mike-cavanagh-1236970183/" target="_blank" rel="noopener">Comcastの分割により、NBCUniversalとSkyの今後の展望が語られる</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Deadline</span>
-                    <span class="score-badge score-mid">2pt</span>
-                </div>
-                <p class="news-summary">Comcastの分割により、NBCUniversalとSkyの今後の展望が語られる。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">13</span>
-                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/eat-your-heart-out-tania-raymonde-horror-musical-1236633081/" target="_blank" rel="noopener">タニア・レイモンドらが主演する新作ホラーコメディミュージカル</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">THR</span>
-                    <span class="score-badge score-low">0pt</span>
-                </div>
-                <p class="news-summary">タニア・レイモンドらが主演する新作ホラーコメディミュージカル。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">14</span>
-                    <span class="news-title"><a href="https://deadline.com/2026/06/love-theoretically-adaptation-colleen-hoover-amazon-1236970505/" target="_blank" rel="noopener">人気ベストセラー小説『Love, Theoretically』がAmazon MGM Studiosで映画化</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">Deadline</span>
-                    <span class="score-badge score-low">0pt</span>
-                </div>
-                <p class="news-summary">人気ベストセラー小説『Love, Theoretically』がAmazon MGM Studiosで映画化。</p>
-            </li>
-            <li class="news-item">
-                <div class="news-header">
-                    <span class="news-number">15</span>
-                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/hershey-biopic-trailer-finn-wittrock-alexandra-daddario-1236633224/" target="_blank" rel="noopener">チョコレート会社ハーシーの創業秘話を描く伝記映画の予告編</a></span>
-                </div>
-                <div class="news-meta">
-                    <span class="source-badge">THR</span>
-                    <span class="score-badge score-low">0pt</span>
-                </div>
-                <p class="news-summary">チョコレート会社ハーシーの創業秘話を描く伝記映画の予告編。</p>
-            </li>
-        </ul>
-        <footer>Powered by Movie News Scan</footer>
+        <h1>本日の映画ニュース速報</h1>
+        
+        <div class="news-item">
+            <h2><a href="https://variety.com/2026/film/news/margot-robbie-bradley-cooper-oceans-prequel-josh-gad-1236799715/" target="_blank">Josh Gad to Join Margot Robbie and Bradley Cooper’s ‘Ocean’s’ Prequel (EXCLUSIVE)</a></h2>
+            <p>Josh Gad is the latest to join Margot Robbie and Bradley Cooper’s crew for their forthcoming “Ocean’s 11” prequel at Warner Bros, sources told Variety. Gad has booked a significant role in the period heist film, the sources added, and joins a starry ensemble led by Robbie and her director-costar Coo...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 人気シリーズの前日譚に豪華キャストが参加。日本でも話題になりそうです。</p>
+            <div class="source">ソース: Variety | 2026-07-02 01:52</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://deadline.com/2026/07/sadie-sink-working-tom-holland-spider-man-brand-new-day-1236972577/" target="_blank">Sadie Sink On Working With Tom Holland In ‘Spider-Man: Brand New Day’: “He Was Just So Relaxed And Open”</a></h2>
+            <p>Sadie Sink joined the cast of Spider-Man: Brand New Day in a mystery role co-starring alongside Tom Holland. In a new interview, Sink opens up about the positive experience she had with the actor who plays the superhero. “It was interesting stepping into that space and being a little bit of an outsi...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 日本でも大人気のスパイダーマンシリーズ、トム・ホランド共演の話題は必見です。</p>
+            <div class="source">ソース: Deadline | 2026-07-01 19:12</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://variety.com/2026/film/columns/minions-monsters-jesse-eisenberg-jeff-bridges-zoey-deutch-speak-minionese-1236800207/" target="_blank">Watch ‘Minions & Monsters’ Stars Jesse Eisenberg, Jeff Bridges and Zoey Deutch Speak Minionese</a></h2>
+            <p>You won’t find Minionese on Duolingo – at least not yet – but the Minion language is on everyone’s tongue these days following the release of the franchise’s latest film, “Minions & Monsters.” It was only fitting to ask the stars of the movie if they had picked up any Minionese skills when I caught ...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 人気シリーズの最新作に関する話題で、日本でも注目度が高いです。</p>
+            <div class="source">ソース: Variety | 2026-07-01 22:43</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://deadline.com/2026/07/camp-rock-3-release-date-disney-disney-channel-1236900026/" target="_blank">‘Camp Rock 3′ Sets Release Date; Unveils Teaser Trailer</a></h2>
+            <p>Get ready to return to your Disney Channel roots, rockers, for the third Camp Rock film, starring the Jonas Brothers, will come out August 13 both on Disney+ and on Disney Channel. Today, Disney revealed the brand-new teaser for “Camp Rock 3,” showcasing the next generation of rockers taking center ...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> ディズニーの人気ミュージカル映画シリーズの新作発表は、若年層に響くでしょう。</p>
+            <div class="source">ソース: Deadline | 2026-07-01 17:16</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://deadline.com/2026/07/joe-wright-juice-working-title-1236972633/" target="_blank">Joe Wright To Direct Feature Take On Tim Winton’s Sci-Fi Thriller ‘Juice’ For Working Title, Abi Morgan Adapting</a></h2>
+            <p>EXCLUSIVE: Two-time BAFTA-winning filmmaker Joe Wright is attached to direct the feature take on the Tim Winton post-apocalyptic thriller novel Juice for Working Title Films. The multi-Oscar-winning UK production company has optioned rights to Juice and set BAFTA and Emmy winner Abi Morgan (The Hour...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 有名監督のSFスリラー映画化は、映画ファンにとって興味深いニュースです。</p>
+            <div class="source">ソース: Deadline | 2026-07-01 20:38</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://deadline.com/2026/07/paranormal-activity-maya-da-costa-joins-new-movie-1236972539/" target="_blank">Maya Da Costa Joins Next ‘Paranormal Activity’ Movie</a></h2>
+            <p>EXCLUSIVE: Maya da Costa (Girls Like Girls) has inked a deal to join Chase Yi and Sonia Mena in the new Paranormal Activity movie from Undertone helmer Ian Tuason, Blumhouse Atomic Monster and Paramount. Character and plot details for the next installment in the hit found-footage franchise remain un...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 根強い人気のあるホラーフランチャイズの新作は、ファンにとって朗報です。</p>
+            <div class="source">ソース: Deadline | 2026-07-01 19:30</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://deadline.com/2026/07/siren-head-movie-warmer-bros-brian-duffield-directing-1236972398/" target="_blank">Warner Bros. Sets ‘Siren Head’ Movie; Brian Duffield To Direct From Script Penned With Zach Cregger</a></h2>
+            <p>Warner Bros. has snapped up Siren Head, a feature package based on the viral horror meme from Trevor Henderson, which has Brian Duffield set to direct from a script co-written with Zach Cregger, Deadline can confirm. Sources said the project, based an original take by Cregger, landed at the studio f...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 海外で人気のインターネットミームが実写映画化。ホラーファンに響くでしょう。</p>
+            <div class="source">ソース: Deadline | 2026-07-01 17:18</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOYzlXZk1kM3EwcllCY2lyT1hfV3JxTUtLd1J1MmlMSC1Mc0V4RGMzNDNDelZaM2tQWV9xMEh2My1wVnRIcTFnV1dqUXk0TTJ5bE9rWDFycU1sSUFlR0J4TVlaZ29HY2hJT2JoWkJCSjNwejVhUVAwRTBoUnNrMkluaFhDVlRiYXA2QldtVHJuQWR3UFBBSDd0MG0zQWU0RHpjUkptbzZ3?oc=5" target="_blank">‘Siren Head,’ Creepy Internet Sensation, Will Become Warner Bros. Movie With Brian Duffield Directing and ‘Weapons’ Filmmaker Zach Cregger Co-Writing - Variety</a></h2>
+            <p>‘Siren Head,’ Creepy Internet Sensation, Will Become Warner Bros. Movie With Brian Duffield Directing and ‘Weapons’ Filmmaker Zach Cregger Co-Writing Variety ‘Siren Head’ Horror Movie, Based on Internet Sensation, in the Works With Zach Cregger, Brian Duffield (Exclusive) The Hollywood Reporter Warn...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 海外で人気のインターネットミームが実写映画化。ホラーファンに響くでしょう。</p>
+            <div class="source">ソース: Google News | 2026-07-01 18:08</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxOZGlkSEJYZ0RheFIyS2kwMDk1OGNkd2xfYU9JVkIza2VqNGJUQm43T3l1Z3JBYkN6dWdhc2ZDbGF0azRnS0NRWHVIMmxFV0JVZjdqLUFjblNqUmdueV9TY2RsbDhtcW9GanpxM2FvNjJXVzBPOWdlakZNclpkX0NRdHhOX3Z0T3RMcVplZ0U1ZzVNeHZCX0lXUQ?oc=5" target="_blank">Could Luca Guadagnino’s ‘Artificial’ Be This Oscar Season’s ‘The Apprentice’? - Variety</a></h2>
+            <p>Could Luca Guadagnino’s ‘Artificial’ Be This Oscar Season’s ‘The Apprentice’? Variety Neon Buys ‘Artificial,’ a Film About OpenAI, After Amazon Dropped It The New York Times 'Artificial': Neon Acquires Luca Guadagnino's Sam Altman Open AI Movie Deadline New Studio Picks Up Sam Altman Movie After Ama...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> AIをテーマにした注目監督の作品で、現代のトレンドを反映しています。</p>
+            <div class="source">ソース: Google News | 2026-07-01 17:00</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://variety.com/2026/film/news/korea-lotte-cinema-megabox-merger-collapses-joongang-crisis-1236800622/" target="_blank">Korea’s Lotte Cinema-Megabox Merger Collapses as JoongAng Group’s Financial Crisis Deepens</a></h2>
+            <p>The proposed merger between Lotte Cinema and Megabox, which would have created South Korea’s largest theatrical exhibitor, has officially collapsed after roughly 14 months of negotiations, with the deal ultimately undone by a financial crisis engulfing Megabox’s parent company, JoongAng Group. Lotte...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 韓国映画業界の大きな動きは、日本のエンタメ業界にも影響を与える可能性があります。</p>
+            <div class="source">ソース: Variety | 2026-07-02 09:46</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://variety.com/2026/film/news/screen-australia-first-cut-lab-impact-insights-tatino-publikum-1236799836/" target="_blank">Screen Australia Launches Audience-Intelligence Programs With Tatino Films, Publikum</a></h2>
+            <p>Screen Australia has unveiled two audience-focused programs designed to strengthen the theatrical reach of Australian feature films, partnering with global film organizations Tatino Films and Publikum to deliver editing mentorship and strategic release guidance to local filmmakers. The initiatives –...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> オーストラリア映画の国際展開を強化する取り組みは、アジア太平洋地域での注目度を高める可能性があります。</p>
+            <div class="source">ソース: Variety | 2026-07-02 00:00</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://variety.com/2026/awards/awards/oscars-officer-teni-melidonian-exits-ampas-1236800583/" target="_blank">Chief Oscars Officer Teni Melidonian Transitions to AMPAS Consultant as Awards Production Moves Under Jennifer Davidson</a></h2>
+            <p>As the Oscars ceremony prepares for its move to YouTube in 2029, chief Oscars officer Teni Melidonian is stepping down, AMPAS CEO Bill Kramer told staffers in an email, according to sources. Melidonian, who has been the lead liaison between the Academy and Disney/ABC, will continue on as a consultan...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> アカデミー賞関連の組織人事異動は業界ニュースとして重要です。</p>
+            <div class="source">ソース: Variety | 2026-07-02 03:39</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://deadline.com/2026/07/chief-oscars-officer-teni-melidonian-steps-down-ampas-1236972910/" target="_blank">Teni Melidonian Steps Down From AMPAS Full-Time Position, Staying On As Consultant</a></h2>
+            <p>Teni Melidonian has stepped down from her full-time executive position at the Academy of Motion Picture Arts and Sciences. On Monday, CEO Bill Kramer announced Melidonian’s transition to a consultant role in a staff-wide email as part of a restructuring, days after the Academy invited 529 film indus...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> アカデミー賞関連の組織人事異動は業界ニュースとして重要です。</p>
+            <div class="source">ソース: Deadline | 2026-07-02 04:02</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcy10YkFZbW11czlQQWtWNnUyZTVOQWRCWkh2aEFreWw0SGRDVE9fU0hfalEwdXg3eTRMMlh5MVU0Q29GVFpabFFaSHZaaTlxYmVPTmlDRlpkaUZRX1pEXy1mcDlaTUptMnNfUWZMWGZ3UGVNQkhlV1RGd3JFaTJEYzhnNnlGSmNxcEVF?oc=5" target="_blank">‘Project Hail Mary’ Arriving On Prime Video After 105-Day Theatrical Window - Deadline</a></h2>
+            <p>‘Project Hail Mary’ Arriving On Prime Video After 105-Day Theatrical Window Deadline 'Project Hail Mary' Arrives On Prime Video This Week Following Altered Streaming Strategy Forbes Let’s Talk Cinema with Jerm: Project Hail Mary, Finally! Awards Daily ‘Project Hail Mary’ Finally Comes to a Streamer ...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> SF小説原作の人気作の配信決定は、多くのファンの関心を引くでしょう。</p>
+            <div class="source">ソース: Google News | 2026-07-01 16:26</div>
+        </div>
+    
+        <div class="news-item">
+            <h2><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVFhCZUtTUkNGRnRBVkxyRnJQSTZxcFg3bk1YYUZNR0NJM01OMjlQeGxqSmVrdm9MaVcyNExrRmVXbDBYTlhUOURWekVhQ3NSNzE0YWFDeTJzRGJKNlhpclRxbmdpTVVHWTJMV3FqTTJWME5IVWdQa3dYcTM2UWQwMVR1eHdKUkswS1dETGw5VnhZWF9nX3hlMVAyMC0zQTNPLVdSR1dlVDJOdDBpNXJBaGltR2JkS2ZmRndaN1F4VEdWTnZJLVZWeXZ1am94bzVsRDJF?oc=5" target="_blank">'Passion of the Christ' Sets Re-Release, 'Resurrection of the Christ' Sneak Peek - Variety</a></h2>
+            <p>'Passion of the Christ' Sets Re-Release, 'Resurrection of the Christ' Sneak Peek Variety ‘The Passion of the Christ’ to Make a Return to Theaters Rolling Stone ‘Passion of the Christ’ Set For Theatrical Return The Hollywood Reporter Mel Gibson’s ‘Passion of the Christ’ back in theaters this fall ale...</p>
+            <p class="recommendation"><strong>おすすめ理由:</strong> 話題作の再上映と続編のプレビューは、広く関心を集めそうです。</p>
+            <div class="source">ソース: Google News | 2026-07-01 16:01</div>
+        </div>
+    
     </div>
 </body>
 </html>
