@@ -3,179 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>映画ニュース速報</title>
+    <title>Movie News Digest — 2026-07-16 10:24:33</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f4f7f6; color: #333; }
-        .container { max-width: 900px; margin: 0 auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
-        h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; font-size: 2.5em; }
-        .news-item { border-bottom: 1px solid #eee; padding: 20px 0; display: flex; align-items: flex-start; }
-        .news-item:last-child { border-bottom: none; }
-        .news-source { background-color: #e74c3c; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 15px; flex-shrink: 0; }
-        .news-content { flex-grow: 1; }
-        .news-title { font-size: 1.3em; margin-bottom: 8px; line-height: 1.4; }
-        .news-title a { color: #34495e; text-decoration: none; transition: color 0.3s ease; }
-        .news-title a:hover { color: #e74c3c; }
-        .news-summary { font-size: 0.9em; color: #666; margin-bottom: 5px; }
-        .news-reason { font-size: 0.85em; color: #27ae60; font-weight: bold; }
-        .news-score { font-size: 0.8em; color: #999; text-align: right; margin-top: 5px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6; color: #f7f8f8; background-color: #08090a;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        header { margin-bottom: 64px; }
+        .date { font-size: 13px; font-weight: 500; color: #8a8f98; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+        h1 { font-size: 32px; font-weight: 300; letter-spacing: -0.7px; line-height: 1.13; color: #f7f8f8; }
+        .divider { width: 100%; height: 1px; background: #23252a; margin: 32px 0; }
+        .news-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+        .news-item { padding: 20px 16px; border-radius: 8px; transition: background-color 0.15s ease; }
+        .news-item:hover { background-color: #161718; }
+        .news-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+        .news-number { font-size: 13px; font-weight: 500; color: #62666d; min-width: 20px; }
+        .news-title { font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -0.2px; }
+        .news-title a { color: #f7f8f8; text-decoration: none; }
+        .news-title a:hover { color: #5e6ad2; }
+        .news-meta { display: flex; align-items: center; gap: 12px; margin-left: 32px; margin-top: 4px; }
+        .source-badge { font-size: 12px; font-weight: 500; color: #8a8f98; background: #161718; padding: 2px 8px; border-radius: 9999px; border: 1px solid #23252a; }
+        .news-item:hover .source-badge { background: #1e1f21; }
+        .score-badge { font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 9999px; }
+        .score-high { color: #27a644; background: rgba(39, 166, 68, 0.1); border: 1px solid rgba(39, 166, 68, 0.2); }
+        .score-mid { color: #5e6ad2; background: rgba(94, 106, 210, 0.1); border: 1px solid rgba(94, 106, 210, 0.2); }
+        .score-low { color: #8a8f98; background: rgba(138, 143, 152, 0.06); border: 1px solid #23252a; }
+        .news-summary { font-size: 14px; color: #8a8f98; line-height: 1.5; margin-left: 32px; margin-top: 4px; }
+        .empty-state { text-align: center; padding: 80px 0; color: #62666d; font-size: 16px; }
+        footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid #23252a; font-size: 12px; color: #62666d; }
+        @media (max-width: 600px) {
+            .container { padding: 48px 16px 80px; }
+            h1 { font-size: 24px; }
+            header { margin-bottom: 40px; }
+            .news-meta { margin-left: 0; margin-top: 8px; flex-wrap: wrap; }
+            .news-summary { margin-left: 0; margin-top: 8px; }
+            .news-item { padding: 16px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>本日の映画ニュース速報</h1>
-        <div class="news-list">
-            
-            <div class="news-item">
-                <div class="news-source">Deadline</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://deadline.com/2026/07/michael-waldron-nova-movie-marvel-studios-1236981012/" target="_blank">Michael Waldron Developing ‘Nova’ Movie At Marvel Studios</a></h2>
-                    <p class="news-summary">After rumors started to spread of a potential Nova project from filmmaker Michael Waldron last week, sources now tell Deadline that the Chad Powers creator is developing a feature film around the comic at Marvel Studios. Insiders stress the project is still in early development but that Waldron is o...</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Nova, 大型フランチャイズ: Marvel, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 7</p>
+        <header>
+            <p class="date">2026年07月16日（木曜日）</p>
+            <h1>Movie News Digest</h1>
+        </header>
+        <div class="divider"></div>
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">1</span>
+                    <span class="news-title"><a href="https://variety.com/2026/film/news/christopher-nolan-criticizes-tarantino-retiring-after-10-movies-1236810994/" target="_blank" rel="noopener">Quentin Tarantino Plans to Retire After His Next Movie. Christopher Nolan Hopes He ‘Won’t Stay True’ to His Word</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">THR</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/avengers-doomsday-tickets-theaters-runtime-1236647030/" target="_blank">‘Avengers: Doomsday’ Tickets to Go On Sale Next Week, Runtime Revealed (Exclusive)</a></h2>
-                    <p class="news-summary">'Avengers: Doomsday' tickets are going on sale early for premium format screens — and it has an epic runtime (though it's not final).</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: アベンジャーズ, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 4</p>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-high">6pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">THR</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/nightmare-on-elm-street-movie-paramount-1236646496/" target="_blank">New ‘Nightmare on Elm Street’ Movie in the Works From Paramount (Exclusive)</a></h2>
-                    <p class="news-summary">The studio has inked a deal with the estate of Wes Craven to revive the Freddy Kreuger horror franchise and will release it via its newly launched Paramount Primal label.</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Nightmare on Elm Street, 大型フランチャイズ: Freddy Kreuger</p>
-                    <p class="news-score">スコア: 6</p>
+                <p class="news-summary">クエンティン・タランティーノ監督の引退と、クリストファー・ノーラン監督の彼への思いが話題に。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">2</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNblVBUGtTRlNYR0V3aHdnVFBtMWREeU9sZ2pSWk5nVTJESDRpSkJIRXlBaGY2M3VlSFAxS1VPQkJ6YXZCekFURERMdS1Gd1ZZTjdhSV92Q2xwNG1JeVNwZTdZOWpzMHEzMHlfa0ZxcUtvVUhmanpRTEtILTVxTGdpRWsxdmjSAYoBQVVfeXFMUE9VY3RzcnlFOW5ybW83S094N3ZFZTd1SzVna0VrbzAyZTNKUFViQ2h5U29mU2pvT1lyU3BEeFJydExkQzJDZl9qc3pRdmR6OVczMFJiU1Q2YUdwMzQ2Y1p3Vlh3YVU2ZGFjeW16OXlCTlRRd01Td1A3VjZzUWZUSmFjbHZQVXIyMzhR?oc=5" target="_blank" rel="noopener">‘Moana’ flops, but Disney’s remake engine rolls on - KTLA</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Deadline</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://deadline.com/2026/07/hotel-transylvania-5-1236981257/" target="_blank">Sony Animation & Amazon MGM Studios Team For ‘The Haunting Of Hotel Transylvania’, Set Fall 2027 Theatrical Release</a></h2>
-                    <p class="news-summary">EXCLUSIVE: Sony Pictures Animation and Amazon MGM Studios are coming back together for a fifth Hotel Transylvania movie, The Haunting of Hotel Transylvania, set for theatrical release on October 8, 2027. While Hotel Transylvania was born as a Sony property, when theaters were closed during Covid, th...</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Hotel Transylvania, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 4</p>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-high">5pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Variety</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://variety.com/2026/film/news/kong-godzilla-ride-korea-lotte-world-1236809506/" target="_blank">‘Kong x Godzilla’ Ride Set to Open at Korea’s Lotte World This Month: It’s ‘Extremely Immersive’ (EXCLUSIVE)</a></h2>
-                    <p class="news-summary">Legendary Entertainment’s first theme park attraction, “Kong x Godzilla” at Lotte World in Seoul, opens July 24, marking the studio’s entry into location-based entertainment after several years of development on the project. “It was a big priority for me when I joined Legendary nine years ago,” Jame...</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Kong, 大型フランチャイズ: Godzilla, 日本関連: Korea, 日本関連: Lotte World, 日本関連: 韓国, 日本関連: ロッテワールド</p>
-                    <p class="news-score">スコア: 15</p>
+                <p class="news-summary">ディズニー実写版『モアナ』が興行的に苦戦、リメイク戦略の今後が注目される。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">3</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNdGMxcmgzSkxUaGVMV2tZLTdZSVAzb1lMalIxaUx2UGtxQ3EzaUY3dEE4eXlpU2ZnaXlsS09oRkRIQVZzNXVJUGt2ci1xMnAyQmNWSG5XNjhjem05YUlmWlBzU2dQbDFUNzRJZmF4RzZDVUM5endlcUdSa3VvTVVxRF84QmZ5RVZ6YlFacGFfSVFoVXRQRGZsMFFicy15NmNJ?oc=5" target="_blank" rel="noopener">Limited series ‘Lucky’, starring Anya Taylor-Joy, premieres on Apple TV - 9to5Mac</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Deadline</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://deadline.com/2026/07/tristar-pictures-trevor-henderson-cartoon-cat-1236981042/" target="_blank">TriStar Pictures Lands Feature Rights To Trevor Henderson’s Viral Internet IP ‘Cartoon Cat’</a></h2>
-                    <p class="news-summary">EXCLUSIVE: After Siren Head sold to Warner Bros in a massive bidding war, another viral internet sensation from Trevor Henderson has found a home. In a pre-emptive deal, Sony’s TriStar Pictures has swooped in to acquire feature film rights to Henderson’s Cartoon Cat following. This sale marks the se...</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Cartoon Cat, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 4</p>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-high">5pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">THR</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/andy-serkis-hunt-for-gollum-cast-lord-of-the-rings-colbert-1236647367/" target="_blank">Andy Serkis Defends His ‘Hunt for Gollum’ Cast and Confirms He’s Not Directing Stephen Colbert’s ‘Lord of the Rings’ Film</a></h2>
-                    <p class="news-summary">The British actor-filmmaker addressed criticism around the lack of diversity in his 'Lord of the Rings' film, which currently stars Anya Taylor-Joy, Leo Woodall, Kate Winsler and Jamie Dornan.</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Lord of the Rings, 大型フランチャイズ: Gollum, 日本で名の通った有名スター・監督: Andy Serkis, 日本で名の通った有名スター・監督: Anya Taylor-Joy, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 13</p>
+                <p class="news-summary">アニャ・テイラー＝ジョイ主演のApple TV+限定シリーズ『Lucky』が配信開始。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">4</span>
+                    <span class="news-title"><a href="https://variety.com/2026/tv/news/avatar-aang-the-last-airbender-movie-theater-release-1236811011/" target="_blank" rel="noopener">‘Avatar Aang: The Last Airbender’ to Play in Select Movie Theaters for Awards Qualifying Run (EXCLUSIVE)</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Variety</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://variety.com/2026/07/columns/anya-taylor-joy-lord-of-the-rings-books-hunt-for-gollum-1236810271/" target="_blank">‘The Hunt for Gollum’ Star Anya Taylor-Joy Has Not Read the ‘Lord of the Rings’ Books Yet, but Is ‘About to’ Soon</a></h2>
-                    <p class="news-summary">Anya Taylor-Joy was a strict “Harry Potter” fan as a child, but now, having been cast in “The Lord of the Rings: The Hunt for Gollum,” she’s ready to dive into the world of J.R.R. Tolkien. “I’m about to read the books now, actually,” Taylor-Joy told Variety’s Marc Malkin at the Monday night premiere...</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Lord of the Rings, 大型フランチャイズ: Gollum, 日本で名の通った有名スター・監督: Anya Taylor-Joy, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 10</p>
+                <div class="news-meta">
+                    <span class="source-badge">Variety</span>
+                    <span class="score-badge score-mid">4pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">THR</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/moana-disney-live-action-remake-box-office-dwayne-johnson-1236647014/" target="_blank">Why ‘Moana’ Sank With Its Box Office Opening</a></h2>
-                    <p class="news-summary">Despite the property making a splash with its 2024 animated sequel, this weekend's weak launch fuels questions about the studio's strategy for live-action remakes: "Who knows where Disney goes from here?"</p>
-                    <p class="news-reason">おすすめ理由: 大型フランチャイズ: Moana, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 4</p>
+                <p class="news-summary">『アバター 伝説の少年アン』新作映画が、アカデミー賞資格獲得のため限定劇場公開。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">5</span>
+                    <span class="news-title"><a href="https://deadline.com/lists/christopher-nolan-movies-streaming/" target="_blank" rel="noopener">10 Of The Best Christopher Nolan Movies & Where To Stream Them</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Deadline</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://deadline.com/2026/07/christopher-nolan-no-odyssey-without-oppenheimer-1236981622/" target="_blank">Christopher Nolan Says He Wouldn’t Have Been Able To Make ‘The Odyssey’ Without ‘Oppenheimer’</a></h2>
-                    <p class="news-summary">“I will never get a chance to get high with you in a dorm room,” said Jon Stewart on The Daily Show tonight, preparing Christopher Nolan for his somewhat unusual questions about The Odyssey. Among the queries: Why didn’t the cyclops tell a joke? What happened to the wheels on the Trojan horse? And i...</p>
-                    <p class="news-reason">おすすめ理由: 日本で名の通った有名スター・監督: クリストファー・ノーラン, 日本で名の通った有名スター・監督: Christopher Nolan, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 7</p>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">3pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Variety</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://variety.com/2026/film/global/ellen-burstyn-venice-golden-lion-1236810359/" target="_blank">Ellen Burstyn to Receive Venice’s Golden Lion for Lifetime Achievement</a></h2>
-                    <p class="news-summary">Ellen Burstyn, whose credits include “The Last Picture Show,” “The Exorcist” and “Alice Doesn’t Live Here Anymore,” will receive the Golden Lion for Lifetime Achievement at the 83rd Venice Intl. Film Festival, the festival said Tuesday. The festival’s artistic director Alberto Barbera described Burs...</p>
-                    <p class="news-reason">おすすめ理由: 日本で名の通った有名スター・監督: Ellen Burstyn</p>
-                    <p class="news-score">スコア: 3</p>
+                <p class="news-summary">クリストファー・ノーラン監督の最新作公開を前に、彼の傑作10選が紹介。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">6</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/07/french-legion-of-honor-lucas-foster-weaver-1236983511/" target="_blank" rel="noopener">George Lucas, Jodie Foster, Sigourney Weaver, Chris Meledandri & Claude Lelouch Awarded French Legion Of Honor</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Deadline</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://deadline.com/2026/07/pinkpantheress-daniels-secret-movie-1236981169/" target="_blank">PinkPantheress Making Feature Acting Debut In Daniels’ Secret Event Pic At Universal</a></h2>
-                    <p class="news-summary">EXCLUSIVE: Multiplatinum British recording artist, songwriter and producer PinkPantheress, aka Victoria Walker, is set to make her feature acting debut in the Daniels’ secret event film at Universal. She joins previously announced Matt Damon, Sandra Oh, Charles Melton, Sean Kaufman, Silvia Dionicio,...</p>
-                    <p class="news-reason">おすすめ理由: 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 1</p>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">3pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Deadline</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://deadline.com/2026/07/bectu-union-boss-philippa-childs-stepping-down-1236980933/" target="_blank">Bectu Union Boss Philippa Childs Stepping Down After Nearly 10 Years</a></h2>
-                    <p class="news-summary">The head of the UK broadcasting union is stepping down after almost a decade in post. Philippa Childs, Bectu’s first female boss, will exit at the start of next year. Her successor will be unveiled by Bectu’s parent union Prospect soon. Childs has been running Bectu, which represents the interests o...</p>
-                    <p class="news-reason">おすすめ理由: 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 1</p>
+                <p class="news-summary">ジョージ・ルーカスらがフランスのレジオンドヌール勲章を受章。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">7</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/07/matt-reeves-first-look-robert-pattinson-the-batman-sequel-1236983532/" target="_blank" rel="noopener">Matt Reeves Shares First Look At Robert Pattinson In ‘The Batman Part II’</a></span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Variety</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://variety.com/2026/film/news/david-zaslav-sells-59-million-warner-bros-discovery-stock-1236810050/" target="_blank">David Zaslav Sells $59 Million More in Warner Bros. Discovery Stock</a></h2>
-                    <p class="news-summary">As Paramount Skydance’s deal to take over Warner Bros. Discovery is still pending, WBD CEO David Zaslav is continuing to cash out his stock in the company he is set to depart in the coming months. Zaslav filed to sell about 2.18 million shares of Warner Bros. Discovery stock, valued at $59.47 millio...</p>
-                    <p class="news-reason">おすすめ理由: 業界トレンド: stock, 業界トレンド: shares, 複数メディアで報じられている</p>
-                    <p class="news-score">スコア: 5</p>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">3pt</span>
                 </div>
-            </div>
-    
-            <div class="news-item">
-                <div class="news-source">Variety</div>
-                <div class="news-content">
-                    <h2 class="news-title"><a href="https://variety.com/2026/film/news/paramount-david-ellison-federal-film-tax-incentive-1236810169/" target="_blank">Paramount CEO David Ellison Backing Bipartisan Federal Film Tax Incentive</a></h2>
-                    <p class="news-summary">Paramount Skydance CEO David Ellison has been quietly backing a bill to launch a federal film tax incentive, with lawmaker support on both sides of the aisle, multiple sources told Variety. Ellison has spent at least six months in exploratory meetings for the proposed legislation, two sources added,...</p>
-                    <p class="news-reason">おすすめ理由: 業界トレンド: tax incentive, 複数メディアで報じられている</p>
-                    <p class="news-score">スコMre: 3</p>
+                <p class="news-summary">『The Batman Part II』のロバート・パティンソン演じるバットマンの初映像が公開。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">8</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPb1gycGYza2N5RnR5aWZEcmRJSFVvaXZiQjZzZnczblMya2h1c09yTm8tU2s3bmFGYzE2cDM1aE82clBYc1hpNUI0MURoV0xZQnJKZVp1OWl0RUQ4b0tNMVBWVXhnWHpjQksweHV2N0JfT0V5ZktCVm5jbVV4dlRDYVZtQmN0a3dYZnFQaDREYUhXdUYxbEhsMGJocGpHbnBMZ0V6MEdaekRwNlVLU19vNVl2dFVHUDdEYTNiWnhROGliVFk?oc=5" target="_blank" rel="noopener">'The Odyssey' in IMAX 70mm is available at these 25 theater locations - USA Today</a></span>
                 </div>
-            </div>
-    
-        </div>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">クリストファー・ノーラン監督作『オデュッセイア』がIMAX 70mmで限定公開。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">9</span>
+                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/i-play-rocky-trailer-anthony-ippolito-sylvester-stallone-1236649330/" target="_blank" rel="noopener">Anthony Ippolito Goes the Distance as Sylvester Stallone in ‘I Play Rocky’ Trailer</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">THR</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">シルベスター・スタローンを演じる伝記映画『I Play Rocky』の予告編が公開。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">10</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/07/13-going-on-30-reboot-casts-jessica-alba-1236983044/" target="_blank" rel="noopener">Jessica Alba Joins Netflix’s ‘13 Going On 30′ Reboot</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">ジェシカ・アルバがNetflix版『13 Going On 30』リブートに出演決定。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">11</span>
+                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/rob-liefeld-penning-new-avengelyne-comic-1236648163/" target="_blank" rel="noopener">Rob Liefeld Penning New ‘Avengelyne’ Comic for Image</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">THR</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">ロブ・リーフェルドが新作コミック『Avengelyne』を執筆、マーゴット・ロビー製作の映画企画も進行中。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">12</span>
+                    <span class="news-title"><a href="https://deadline.com/2026/07/2026-critics-choice-super-awards-nominations-1236983047/" target="_blank" rel="noopener">‘Superman’ & ‘The Boys’ Lead Nominees For Critics Choice Super Awards</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Deadline</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">『スーパーマン』と『ザ・ボーイズ』が批評家選出スーパーアワードの主要部門でノミネート。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">13</span>
+                    <span class="news-title"><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxOWTlhalNXWVA1RnVfTFVxZk1nNzBvTTRERzV4MU9vUE8taUgtc01YdE5hS3o1dkFHMDNoY2ItVHBoWndwRjk1aFhINk5aTlBMTXYwNjNnMEVlLTRJc3RTdVIzYXFHcjl2dzF4WlVJWXpWaXZ6bXFVcjJMbG1hS25nY2JDTXdxdW9CalROYUp3?oc=5" target="_blank" rel="noopener">Tom Holland and Matt Damon Gave a Master Class in Dressing Your Age - GQ</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">Google News</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">『オデュッセイア』出演のトム・ホランドとマット・デイモンがファッションセンスを披露。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">14</span>
+                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/liam-neeson-the-mongoose-trailer-1236649239/" target="_blank" rel="noopener">Liam Neeson Goes on the Run in Fast-Paced ‘The Mongoose’ Trailer</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">THR</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">リーアム・ニーソン主演の新作スリラー『The Mongoose』のトレーラーが公開。</p>
+            </li>
+            <li class="news-item">
+                <div class="news-header">
+                    <span class="news-number">15</span>
+                    <span class="news-title"><a href="https://www.hollywoodreporter.com/movies/movie-news/the-batman-part-ii-release-delayed-again-2028-1236649280/" target="_blank" rel="noopener">‘The Batman Part II’ Release Delayed, Again, by Warner Bros.</a></span>
+                </div>
+                <div class="news-meta">
+                    <span class="source-badge">THR</span>
+                    <span class="score-badge score-mid">3pt</span>
+                </div>
+                <p class="news-summary">『The Batman Part II』の公開が再び延期、2028年に。</p>
+            </li>
+        </ul>
+        <footer>Powered by Movie News Scan</footer>
     </div>
 </body>
 </html>
